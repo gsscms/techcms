@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts> 
+	<constant name="struts.action.excludePattern" value="/*.jsp" />
+	
+	<package name="index" namespace="/" extends="struts-default">
+		<action name="index" class="com.catcm.skill.action.IndexAction">
+			<result name="success">/web/home.jsp</result>
+		</action>
+		<action name="login" class="com.catcm.skill.action.loginAction">
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+	
+	<package name="info" namespace="/" extends="json-default">
+	
+			<action name="contactAction!*" class="com.catcm.skill.action.ContactAction"   method="{1}">
+				<result name="initContact" type="json">
+					<param name="root">contact</param>
+				</result>
+				<result name="saveContact"  type="dispatcher"> 
+					/contactInfo/contactInfo.jsp
+				</result>
+			</action>
+			
+			<action name="trainGridAction!*" class="com.catcm.skill.action.TrainGridAciton"  method="{1}">
+				<result name="initTrain" type="json">  
+			        <param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param>  
+			    </result>
+			    <result name="trainDict"  type="json">
+			    	<param name="root">dict</param>
+			    </result>  
+			    <result name="saveTrain"  type="dispatcher">
+					/train/trainList.jsp
+				</result>
+				<result name="editTrain" type="dispatcher">
+					/train/train.jsp
+				</result>
+				<result name="setHot" type="json">
+					<param name="root">id</param>
+				</result>
+				<result name="cencelHot" type="json">
+					<param name="root">id</param>
+				</result>
+			</action>
+			
+			<action name="skillAction!*" class="com.catcm.skill.action.SkillGridAction"  method="{1}">
+				<result name="initDisplaySkill" type="json">
+				 <param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param> 
+				</result>
+			
+				 <result name="initSkill" type="json">  
+			        <param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param>  
+			    </result>  
+			    <result name="skillDetail"  type="dispatcher">
+					/skillManager/skill.jsp
+				</result>
+				<result name="webSkillDetail"  type="json">
+					<param name="root">tech</param>
+				</result>
+				<result name="doPass"  type="dispatcher">
+					/skillManager/skillList.jsp
+				</result>
+				<result name="doNoPass"  type="dispatcher">
+					/skillManager/skillList.jsp
+				</result>
+				<result name="setDisplay"  type="dispatcher">
+					/skillManager/skillList.jsp
+				</result>
+					<result name="doSkillDisplay"  type="dispatcher">
+					/skillManager/skillList.jsp
+				</result>
+				
+				<result name="doBatchDisplay"  type="json">
+					 <param name="root">ids</param> 
+				</result>
+			</action>
+			
+			
+			<action name="topicAction!*" class="com.catcm.skill.action.TopicGridAction" method="{1}">  
+			    <result name="initTopicList" type="json">  
+			        <param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param>  
+			    </result>  
+			    <result name="topicDict" type="json">
+			    	<param name="root">dict</param>
+			    </result>
+			    <result name="saveTopic" type="dispatcher">
+			    	topicManager/topicManage.jsp
+			    </result>
+			    <result name="setWebDisplay"  type="json">
+			    	<param name="root">info</param>
+			    </result>
+			    <result name="getHomeDisplay"  type="json">
+			    	<param name="root">info</param>
+			    </result>
+			    <result name="editTopic" type="dispatcher">
+			    	topicManager/topic.jsp
+			    </result>
+
+			</action>
+			
+			<action name="publicInfoGridAction!*" class="com.catcm.skill.action.publicInfoGridAction" method="{1}">  
+			    <result name="initPublicInfoList" type="json">  
+			        <param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param>  
+			    </result>  
+			    <result name="publicDict" type="json">
+			    	<param name="root">dict</param>
+			    </result>
+			    <result name="savePublic" type="dispatcher">
+			    	publicInfoManager/publicInfoList.jsp
+			    </result>
+			    <result name="editPublicInfo" type="dispatcher">
+			    	publicInfoManager/publicInfo.jsp
+			    </result>
+			</action>
+			
+			
+			<action name="jqGrid01" class="com.catcm.skill.action.ListContactsAction">  
+			    <result name="success" type="json">  
+			        <param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param>  
+			    </result>  
+			</action> 
+			
+			<action name="webMenu!*" class="com.catcm.skill.action.WebMenuAction" method="{1}">  
+			    <result name="initWebMenu" type="json">  
+			        <param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param>  
+			    </result> 
+			    <result name="saveMenu" type="dispatcher"> 
+			       /webMenuManage/webManu.jsp
+			    </result>
+			    <result name="delWebMenu" type="dispatcher"> 
+			       /webMenuManage/webManu.jsp
+			    </result>    
+			    <result name="setNoDisplay" type="dispatcher"> 
+			       /webMenuManage/webManu.jsp
+			    </result>
+			     <result name="setDisplay" type="dispatcher"> 
+			       /webMenuManage/webManu.jsp
+			    </result>
+			</action> 
+			
+			<action name="info!*" class="com.catcm.skill.action.InfoAction" method="{1}">  
+			    <result name="success" type="json"> 
+			        <param name="root">types</param>
+			    </result>  
+			    
+			    <result name="publicInfo" type="dispatcher"> 
+			       /newsManager/newsList.jsp
+			    </result>  
+			    <result name="initPlatForm" type="dispatcher">
+					/platformInofManager/platformInof.jsp
+				</result>
+				<result  name="savaPlatForm" type="dispatcher">	
+					/platformInofManager/platformInof.jsp
+				</result>
+				
+				 <result name="initPublicInfoGrid" type="json">  
+			        <param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param>  
+			    </result>
+				
+				<result name="deleteInfo" type="json">
+					<param name="root">infoId</param>
+				</result>
+			</action> 
+			
+
+			
+	</package>
+
+	<package  name="user" namespace="/" extends="json-default">
+		<action name="user!*" class="com.catcm.skill.action.UserAction"  method="{1}">
+			<result name="validateCardId" type="json">
+				<param name="root">isCardIdRegisted</param>
+			</result>
+			<result name="validatePhone" type="json">
+				<param name="root">isPhoneRegisted</param>
+			</result>
+			<result name="validateAccoount" type="json">
+				<param name="root">isAccountRegisted</param>
+			</result>
+			<result name="registerSuccess">
+				/web/skillRegister.jsp
+			</result>
+		</action>
+	</package>
+	
+	<package name="tel"  namespace="/" extends="json-default">
+		<action name="tel!*" class="com.catcm.skill.action.TechnicalAction" method="{1}">
+			<result name="initDiseaseList">
+				<param name="root">diseaseList</param>
+			</result>
+			<result name="initSkillSource">
+				<param name="root">skillSourceList</param>
+			</result>
+			<result name="initSkillType">
+				<param name="root">skillTypeList</param>
+			</result>
+			<result name="registTecSuccess">
+				web/skillList.jsp
+			</result>
+		
+		</action>
+	</package>
+	<package name="file"  namespace="/" extends="json-default">
+		<action name="file!*" class="com.catcm.skill.action.FileAction" method="{1}">
+			<result name="uploadSkillTypeImage"  type="dispatcher">
+				skillManager/skillDisplay.jsp
+			</result>
+			<result name="uploadImage" type="dispatcher">
+				platformInofManager/platformFrame.jsp
+			</result>	
+		</action>
+	</package>
+	
+	<package name="web" namespace="/" extends="json-default">
+		<action name="webInfo!*" class="com.catcm.skill.action.WebInfoAction" method="{1}">
+			<result  name="webPlatform" type="json">
+					<param name="root">info</param>
+			</result>
+			<result name="webInitPublicInfo" type="json">
+				<param name="root">results</param>
+			</result>
+			
+			<result name="webInitTopic" type="json">
+				<param name="root">results</param>
+			</result>
+			
+			<result  name="lastTrain"  type="json">
+				<param name="root">results</param>
+			</result>
+			<result  name="trainByDictType"  type="json">
+				<param name="root">results</param>
+			</result>
+			<result name="getInfoById" type="json">
+				<param name="root">info</param>
+			</result>
+		</action>
+		
+		<action name="webSkill!*"  class="com.catcm.skill.action.WebSkillAction" method="{1}">
+			<result name="registSkill"  type="dispatcher">
+				/web/skillList.jsp
+			</result>
+
+			<result name="initSourceDict"  type="json">
+				 <param name="root">sdict</param>
+			</result>
+			<result name="initSkillTypeDict"  type="json">
+				<param name="root">tdict</param>
+			</result>
+			<result name="initTechList"  type="json">
+				<param name="root">techList</param>
+			</result>
+			<result name="displaySkill"  type="json">
+				<param name="root">skill</param>
+			</result>
+			<result name="homeDisplaySkill"  type="json">
+				<param name="root">techList</param>
+			</result>
+			<result name="setDisplaySkillType" type="dispatcher">
+				skillManager/skillDisplay.jsp
+			</result>
+			<result name="forDisplaySkillType" type="json">
+				<param name="root">tdict</param>
+			</result>
+			<result name="forDisplaySkillInfo" type="json">
+				<param name="root">techList</param>
+			</result>
+		</action>
+		
+		<action name="dictAction!*"   class="com.catcm.skill.action.DictGridAction" method="{1}">
+			<result name="saveDict" type="dispatcher">
+				dictManager/dictManager.jsp
+			</result>
+			<result name="initSkillTypeDict"   type="json">
+				 	<param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param> 
+			</result>
+			<result name="inittTrainTypeDict"   type="json">
+				 	<param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param> 
+			</result>
+			<result name="inittTrainTypeDict"   type="json">
+				 	<param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param> 
+			</result>
+			<result name="initDictList"   type="json">
+				 	<param name="includeProperties">  
+			            ^gridModel\[\d+\]\.\w+, rows, page, total, record  
+			        </param>  
+			        <param name="noCache">true</param>  
+			        <param name="ignoreHierarchy">false</param> 
+			</result>
+		</action>
+	</package>
+	
+
+</struts>

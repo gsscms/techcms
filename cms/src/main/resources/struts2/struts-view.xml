@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<!-- 	<package name="" extends="struts-default">
+			<action name="info!*" method="{1}"
+			class="com.catcm.skill.action.InfoAction">
+			<result name="success"></result>
+		</action>
+	</package> -->
+	
+		<package name="p1" namespace="/" extends="struts-default">
+			<action name="infoAction" method="allInfoList"
+			class="com.catcm.skill.action.InfoAction">
+			<result name="success">/WEB-INF/NewFile.jsp</result>
+		</action>
+	</package>
+
+
+</struts>

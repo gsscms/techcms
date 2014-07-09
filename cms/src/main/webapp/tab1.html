@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+ <script> 
+ 	$( document ).ready( function() {
+ 	 
+ 		//$.ckeditor.config = {path: '/test/fckeditor/', height: 400 ,toolbar:'Default'};
+		$( '#editor1' ).ckeditor({
+		     uiColor: '#9AB8F3',
+		     height: 300 ,toolbar:'Default'
+		 } ); 	
+	} );
+ </script> 
+</head>
+<body>
+
+<form action="">
+
+<textarea cols="80" id="editor1" name="editor1" rows="10">
+
+</textarea>
+<p style="overflow: hidden">
+			<input style="float: left" type="submit" value="保存">			
+</p>
+</form>
+</body>
+</html>

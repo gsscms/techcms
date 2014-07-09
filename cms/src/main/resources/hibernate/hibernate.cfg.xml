@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<!-- 
+		sessionFactory代表一个数据库的描述
+	-->
+	<session-factory>
+		<property name="connection.password">123</property>
+		<property name="connection.username">root</property>
+
+		<property name="hibernate.connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost:3306/skill
+		</property>
+
+
+		<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+
+		<!-- 
+			validate  默认值
+			根据持久化类和映射文件检查表的结构
+			update
+			hibernate容器在启动的时候，会根据持久化类和映射文件检查表的结构
+			如果不存在，则创建，如果存在，则更新
+			create
+			每次启动hibernate容器，不管表是否存在，都会创建
+			create-drop
+			当启动hibernate容器时创建表，当hibernate容器销毁时，删除表
+		-->
+		<property name="hbm2ddl.auto">update</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="connection.autocommit">true</property>
+
+
+		<mapping resource="com/catcm/skill/pojo/Info.hbm.xml" />
+
+		<mapping resource="com/catcm/skill/pojo/UserInfo.hbm.xml" />
+		<mapping resource="com/catcm/skill/pojo/TechnicalData.hbm.xml" />
+		<mapping resource="com/catcm/skill/pojo/Dict.hbm.xml" />
+		<mapping resource="com/catcm/skill/pojo/InfoType.hbm.xml" />
+		<mapping resource="com/catcm/skill/pojo/Contact.hbm.xml" />
+
+	</session-factory>
+</hibernate-configuration>

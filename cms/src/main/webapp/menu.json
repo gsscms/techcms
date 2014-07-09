@@ -1,0 +1,32 @@
+{
+	"dict-module":[
+     	{"url":"webMenuManage/webMenuManageFrame.jsp","tabName":"字典管理"}  
+     ],
+	"topic-module":[
+     	{"url":"topicManager/topicManagerFram.jsp","tabName":"相关课题"}  
+     ],
+     "publicInfo-module":[
+     	{"url":"publicInfoManager/publicInfoFrame.jsp","tabName":"公告维护"}  
+     ], 
+      "webMenu-module":[
+     	{"url":"webMenuManage/webMenuManageFrame.jsp","tabName":"网站栏目维护"}  
+     ],
+     "public—info":[
+				{"url":"tab1.html","tabName":"tab1页面"}     
+     ],
+     "train—module":[
+     	{"url":"train/trainFrame.jsp","tabName":"交流培訓"}     
+     ],
+     "skill-module":[
+     	{"url":"skillManager/skillManagerFrame.jsp","tabName":"技术审核"}     
+     ],
+      "display-module":[
+      	{"url":"platformInofManager/platformFrame.jsp","tabName":"平台介绍"} ,
+     	{"url":"skillManager/skillDisplayFrame.jsp","tabName":"技术展示"},   	
+ 
+     	{"url":"train/trainDisplayFrame.jsp","tabName":"交流培训"},
+     
+     	{"url":"contactInfo/contactInfoFrame.jsp","tabName":"联系信息维护"}
+   
+     ]
+}

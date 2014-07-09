@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+
+ body{
+		font: 14px "Trebuchet MS", sans-serif;
+	}
+   
+    
+ 
+	.head{
+		padding: 10px 0px 5px 5px;
+		height:25px;
+		width:100%;
+		color:#345;
+		background:#eee;
+		border-bottom:1px solid #ccc;
+	}
+	.head .round{
+		background:url(../icons/application_home.png) no-repeat 10px 50%;
+		padding-left:35px;
+	}
+	.head a{
+		color:#345;
+		text-decoration :none;
+	}
+	.mainbox{
+		border:1px dotted #ccc;
+		padding:5px;
+	}
+	.functionbar {
+		height:30px;
+		width:100%;
+		background:#cfe;
+		padding:5px 5px;
+		margin:0px 0px 2px;
+	}
+	.ui-priority-secondary{
+		background:#ddd;
+	}
+	.ui-jqgrid-titlebar{
+		background-position:50% 50%;
+		border-bottom:1px solid #ccc;
+	}
+	.ui-jqgrid-view span{
+		font-size:14px;
+		color:#fff;
+		padding-left:10px;
+	}
+	th,td{
+		font-size:14px;
+	}
+	th *{
+		heihgt:20px;
+		line-height:16px;
+		font-weight:bold;
+	}

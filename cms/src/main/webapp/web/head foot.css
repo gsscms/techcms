@@ -1,0 +1,44 @@
+
+
+
+
+/*初始化样式*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, '微软雅黑', \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none;cursor:pointer; }
+a:hover { text-decoration:none;color:#F00; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0;font-size:12px; } 
+
+
+
+
+
+
+
+
+
+
+
+
+  /*头部*/
+.container{width:1000px;margin:0 auto;font-family:'微软雅黑'}
+.container .header{height:81px;background:url(pic/pic01.png) repeat-x;}
+.container .header .img{width:441px;height:81px;background:url(pic/pic02.png) no-repeat}
+.container .nav{padding-left:14px;height:33px;background:url(pic/pic03.png) repeat-x; color:white;font-size:13px;line-height:33px;font-weight:bold;}
+.container .nav li{float:left;}
+.container .nav li a{color:white;padding:0 8px 0 8px;text-decoration:none;}
+.container .nav li a:hover{color:#eee600;}
+
+/*底部*/
+.container .footer{height:120px;background:#047959;line-height:30px;text-align:center;font-size:12px;color:white;padding-top:10px;} 
+

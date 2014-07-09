@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="topic" location="10,10" size="280,245">
+    <action name="loginAction" location="66,58" size="150,41">
+      <result name="editTopic">
+        <resourceEdge source="editTopic" routing="0" target="edittopic.jsp" />
+      </result>
+    </action>
+    <action name="jumpLoginAction" location="66,163" size="150,40">
+      <result name="jumpLogin">
+        <resourceEdge source="jumpLogin" routing="0" target="login.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="edittopic.jsp" path="/WEB-INF/page/edittopic.jsp" location="355,52" size="150,55" />
+  <webResource name="login.jsp" path="/WEB-INF/page/login.jsp" location="0,0" size="150,55" />
+</Struts2Diagram>
+
